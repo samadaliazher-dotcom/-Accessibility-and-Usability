@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Portfolio</title>
+    <style>
+        * {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MD. Ali Azhar</h1>
+        <p>BSc (Hons) Computer Science Student at the University of Hertfordshire. My student ID is 24148683.</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a second-year Computer Science student at the University of Hertfordshire. I'm building a strong foundation in software development and web technologies, with a particular interest in creating user friendly applications. My goal is to leverage my coding skills to solve real world problems.</p>
+    </section>
+
+    <section id="portfolio-bucket">
+        <h2>Portfolio</h2>
+        <div class="project-card">
+            <h3>Task Manager</h3>
+            <p>A web-based application to manage daily tasks with add and delete functionality.</p>
+        </div>
+    </section>
+
+    <section id="project-information">
+        <h2>Project Details</h2>
+        <div>
+            <h3>Task Manager Code</h3>
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button onclick="addTask()">Add Task</button>
+            <ul id="taskList"></ul>
+        </div>
+    </section>
+
+    <script>
+        function addTask() {
+            let input = document.getElementById("taskInput");
+            let taskText = input.value;
+            if (taskText === "") return;
+            
+            let li = document.createElement("li");
+            li.innerHTML = taskText + ' <button onclick="this.parentElement.remove()">Delete</button>';
+            document.getElementById("taskList").appendChild(li);
+            input.value = "";
+        }
+    </script>
+
+</body>
+</html>
